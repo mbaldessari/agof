@@ -54,6 +54,11 @@
           ansible.builtin.debug:
             msg: "{{ cfg.stdout }}"
 
+        - name: "Get overrides cfg"
+          ansible.builtin.shell:
+            cat ~/agof_overrides.yml
+          register: cfg
+
         - name: "Install requirements file based collections {{ 'forcefully' if init_env_collection_install_force }}"
           ansible.builtin.command:
             cmd: |-
