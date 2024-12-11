@@ -41,6 +41,19 @@
             chdir: ".."
           loop: '{{ special_collection_installs }}'
 
+        - name: "FUCK YOU BANDINI"
+          ansible.builtin.debug:
+            msg: "{{ automation_hub_token }}"
+
+        - name: "Get ansible cfg"
+          ansible.builtin.shell:
+            cat ../ansible.cfg
+          register: cfg
+
+        - name: "FUCK YOU BANDINI 2"
+          ansible.builtin.debug:
+            msg: "{{ cfg.stdout }}"
+
         - name: "Install requirements file based collections {{ 'forcefully' if init_env_collection_install_force }}"
           ansible.builtin.command:
             cmd: |-
