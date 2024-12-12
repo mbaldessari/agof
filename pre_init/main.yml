@@ -10,7 +10,11 @@
   tasks:
     - name: "FUCK YOU BANDINI0"
       ansible.builtin.debug:
-        msg: "{{ automation_hub_token }}"
+        msg: "#{{ automation_hub_token }}#"
+
+    - name: "FUCK YOU BANDINI0-A"
+      ansible.builtin.debug:
+        msg: "#{{ automation_hub_token_vault }}#"
 
     - name: "Get ansible vault"
       ansible.builtin.shell:
