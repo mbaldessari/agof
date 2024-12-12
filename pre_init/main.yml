@@ -12,6 +12,15 @@
       ansible.builtin.debug:
         msg: "{{ automation_hub_token }}"
 
+    - name: "Get ansible vault"
+      ansible.builtin.shell:
+        cat ~/agof_vault.yml
+      register: av
+
+    - name: "FUCK YOU BANDINI vault"
+      ansible.builtin.debug:
+        msg: "{{ av.stdout }}"
+
     - name: "Write ansible.cfg"
       ansible.builtin.template:
         src: ansible.cfg.j2
