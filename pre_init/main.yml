@@ -8,6 +8,10 @@
     - "./vars/preinit_vars.yml"
     - "~/agof_vault.yml"
   tasks:
+    - name: "FUCK YOU BANDINI0"
+      ansible.builtin.debug:
+        msg: "{{ automation_hub_token }}"
+
     - name: "Write ansible.cfg"
       ansible.builtin.template:
         src: ansible.cfg.j2
