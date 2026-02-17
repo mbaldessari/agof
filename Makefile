@@ -22,7 +22,7 @@ from_os_install: preinit ## Install on registered RHEL VM(s), using the containe
 	ansible-playbook -i $(INVENTORY) containerized_install/main.yml $(EXTRA_PLAYBOOK_OPTS)
 
 api_install: preinit ## Install assuming *just* an AAP endpoint
-	ansible-playbook -i $(INVENTORY) configure_aap.yml $(EXTRA_PLAYBOOK_OPTS)
+	ansible-playbook -vvvv -i $(INVENTORY) configure_aap.yml $(EXTRA_PLAYBOOK_OPTS)
 
 openshift_vp_preinit: ## Install credentials and overrides as part of OpenShift Validated Patterns framework
 	ansible-playbook pre_init/openshift_vp_preinit.yml $(EXTRA_PLAYBOOK_OPTS)
