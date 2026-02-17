@@ -10,6 +10,13 @@
   vars:
     ansible_async_dir: /tmp/.ansible_async
   tasks:
-    - name: "Configure AAP"
-      ansible.builtin.include_role:
-        name: agof_configure_aap/roles/configure_aap
+    - name: "Configure AAP Block"
+      block:
+        - name: "Configure AAP"
+          ansible.builtin.include_role:
+            name: agof_configure_aap/roles/configure_aap
+      rescue:
+        - name: "Configure AAP (second pass)"
+          ansible.builtin.include_role:
+            name: agof_configure_aap/roles/configure_aap
+
